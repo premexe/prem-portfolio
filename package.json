@@ -4,13 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "homepage": "https://premexe.github.io/portfolio-site/",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+     "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^10.16.16",
