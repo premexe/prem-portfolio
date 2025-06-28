@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Prem_Kakade_Resume.pdf"; // ✅ Adjust to match your file name
+    link.href = "/portfolio-site/Prem_Kakade_Resume.pdf"; // Adjust if repo name is different
     link.download = "Prem_Kakade_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -21,42 +21,29 @@ const Hero: React.FC = () => {
     <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
       </div>
 
       {/* Holographic Elements */}
       <div className="absolute inset-0">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-30 holographic"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
         />
         <motion.div
           className="absolute top-40 right-10 w-72 h-72 rounded-full opacity-30 holographic"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-            scale: [1.2, 1, 1.2],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
+          animate={{ x: [0, -100, 0], y: [0, 100, 0], scale: [1.2, 1, 1.2] }}
+          transition={{ duration: 25, repeat: Infinity, repeatType: "reverse" }}
         />
       </div>
 
@@ -64,27 +51,18 @@ const Hero: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto">
           {/* Profile Avatar */}
           <motion.div
-  className="mb-8 mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden tilt-effect glow-blue"
-  initial={{ scale: 0, rotate: -180 }}
-  animate={{ scale: 1, rotate: 0 }}
-  transition={{
-    type: "spring",
-    stiffness: 260,
-    damping: 20,
-    delay: 0.2,
-  }}
-  whileHover={{ scale: 1.1, rotate: 5 }}
->
-  <img
-    src="https://i.ibb.co/4Znvph9T/IMG-20230911-181537-684.jpg"
-    alt="Prem Kakade"
-    className="w-full h-full object-cover"
-  />
-</motion.div>
-
-
-            
-          
+            className="mb-8 mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden tilt-effect glow-blue"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+          >
+            <img
+              src="https://i.ibb.co/4Znvph9T/IMG-20230911-181537-684.jpg"
+              alt="Prem Kakade"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
 
           {/* Main Content */}
           <motion.div
@@ -102,16 +80,14 @@ const Hero: React.FC = () => {
               <p className="text-lg text-gray-300">Hi, I'm Prem Kakade 👋</p>
               <Sparkles className="text-purple-400" size={20} />
             </motion.div>
-            
+
             <motion.h1
               className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="text-gradient neon-text">
-                Data
-              </span>
+              <span className="text-gradient neon-text">Data</span>
               <br />
               <span className="text-white">Scientist</span>
             </motion.h1>
@@ -137,23 +113,25 @@ const Hero: React.FC = () => {
             A data enthusiast passionate about solving real-world problems using data and code.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <motion.button
-              onClick={handleDownloadResume}
-              className="neon-button interactive flex items-center gap-2"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download size={20} />
-              Download Resume
-            </motion.button>
-            
+           <motion.button
+  onClick={handleDownloadResume}
+  className="flex items-center gap-2 px-6 py-3 rounded-xl neon-button shadow-lg interactive tilt-effect"
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Download size={20} className="text-white" />
+  <span className="text-white font-semibold">Download Resume</span>
+</motion.button>
+
+
+            {/* Social Icons */}
             <motion.div className="flex gap-4">
               <motion.a
                 href="https://github.com/premexe"
@@ -165,7 +143,7 @@ const Hero: React.FC = () => {
               >
                 <Github size={24} className="text-gray-300" />
               </motion.a>
-              
+
               <motion.a
                 href="https://linkedin.com/in/premexe"
                 target="_blank"
@@ -176,7 +154,7 @@ const Hero: React.FC = () => {
               >
                 <Linkedin size={24} className="text-blue-400" />
               </motion.a>
-              
+
               <motion.a
                 href="mailto:premkakade2021@gmail.com"
                 className="p-3 rounded-full glass-dark hover:glow-blue transition-all duration-300 interactive tilt-effect"
@@ -188,7 +166,7 @@ const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Scroll Icon */}
           <motion.button
             onClick={scrollToAbout}
             className="animate-bounce interactive"
