@@ -9,17 +9,17 @@ const Hero: React.FC = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/portfolio-site/Prem_Kakade_Resume.pdf"; // Adjust if repo name is different
+    link.href = "/portfolio-site/Prem_Kakade_Resume.pdf"; // For GitHub Pages
     link.download = "Prem_Kakade_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
-  
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20">
-      {/* Animated Grid Background */}
+      
+      {/* Grid Background */}
       <div className="absolute inset-0 opacity-20">
         <div
           className="absolute inset-0"
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      {/* Holographic Elements */}
+      {/* Holographic Motion Elements */}
       <div className="absolute inset-0">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-30 holographic"
@@ -49,7 +49,8 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Profile Avatar */}
+
+          {/* Avatar */}
           <motion.div
             className="mb-8 mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden tilt-effect glow-blue"
             initial={{ scale: 0, rotate: -180 }}
@@ -64,7 +65,7 @@ const Hero: React.FC = () => {
             />
           </motion.div>
 
-          {/* Main Content */}
+          {/* Intro Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,8 +88,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="text-gradient neon-text">Data</span>
-              <br />
+              <span className="text-gradient neon-text">Data</span><br />
               <span className="text-white">Scientist</span>
             </motion.h1>
           </motion.div>
@@ -113,23 +113,23 @@ const Hero: React.FC = () => {
             A data enthusiast passionate about solving real-world problems using data and code.
           </motion.p>
 
-          {/* Buttons */}
+          {/* Action Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-           <motion.button
-  onClick={handleDownloadResume}
-  className="flex items-center gap-2 px-6 py-3 rounded-xl neon-button shadow-lg interactive tilt-effect"
-  whileHover={{ scale: 1.05, y: -2 }}
-  whileTap={{ scale: 0.95 }}
->
-  <Download size={20} className="text-white" />
-  <span className="text-white font-semibold">Download Resume</span>
-</motion.button>
-
+            {/* Resume Button */}
+            <motion.button
+              onClick={handleDownloadResume}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl neon-button shadow-lg interactive tilt-effect"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download size={20} className="text-white" />
+              <span className="text-white font-semibold">Download Resume</span>
+            </motion.button>
 
             {/* Social Icons */}
             <motion.div className="flex gap-4">
@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Scroll Icon */}
+          {/* Scroll Down Indicator */}
           <motion.button
             onClick={scrollToAbout}
             className="animate-bounce interactive"

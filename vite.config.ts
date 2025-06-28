@@ -3,7 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio-site/', // ✅ important for GitHub Pages
+
+  // GitHub Pages base path — MUST match your repo name
+  base: '/portfolio-site/',
+
+  // Optional: skip pre-bundling lucide-react
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
