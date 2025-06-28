@@ -8,13 +8,12 @@ const Hero: React.FC = () => {
   };
 
   const handleDownloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/Prem_Kakade_Resume.pdf"; // ✅ Adjust to match your file name
-    link.download = "Prem_Kakade_Resume.pdf";
-    document.body.appendChild(link);
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // ✅ this path assumes it's in public/
+    link.download = 'Prem_Kakade_Resume.pdf'; // filename to download as
     link.click();
-    document.body.removeChild(link);
   };
+  
   
 
   return (
