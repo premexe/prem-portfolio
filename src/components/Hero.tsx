@@ -4,23 +4,28 @@ import { ChevronDown, Download, Github, Linkedin, Mail, Sparkles } from 'lucide-
 
 const Hero: React.FC = () => {
   const scrollToAbout = () => {
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+    const aboutSection = document.querySelector('#about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleDownloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/portfolio-site/Prem_Kakade_Resume.pdf"; // For GitHub Pages
-    link.download = "Prem_Kakade_Resume.pdf";
+    const link = document.createElement('a');
+    link.href = '/portfolio-site/Prem_Kakade_Resume.pdf'; // Path for GitHub Pages
+    link.download = 'Prem_Kakade_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20">
-      
-      {/* Grid Background */}
-      <div className="absolute inset-0 opacity-20">
+    <section
+      id="home"
+      className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20"
+    >
+      {/* Background Grid */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
@@ -34,28 +39,27 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Holographic Motion Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-30 holographic"
           animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
         />
         <motion.div
           className="absolute top-40 right-10 w-72 h-72 rounded-full opacity-30 holographic"
           animate={{ x: [0, -100, 0], y: [0, 100, 0], scale: [1.2, 1, 1.2] }}
-          transition={{ duration: 25, repeat: Infinity, repeatType: "reverse" }}
+          transition={{ duration: 25, repeat: Infinity, repeatType: 'reverse' }}
         />
       </div>
 
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-
-          {/* Avatar */}
+          {/* Profile Image */}
           <motion.div
             className="mb-8 mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden tilt-effect glow-blue"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 20, delay: 0.2 }}
             whileHover={{ scale: 1.1, rotate: 5 }}
           >
             <img
@@ -65,7 +69,7 @@ const Hero: React.FC = () => {
             />
           </motion.div>
 
-          {/* Intro Text */}
+          {/* Greeting & Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,7 +92,8 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="text-gradient neon-text">Data</span><br />
+              <span className="text-gradient neon-text">Data</span>
+              <br />
               <span className="text-white">Scientist</span>
             </motion.h1>
           </motion.div>
@@ -113,14 +118,13 @@ const Hero: React.FC = () => {
             A data enthusiast passionate about solving real-world problems using data and code.
           </motion.p>
 
-          {/* Action Buttons */}
+          {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            {/* Resume Button */}
             <motion.button
               onClick={handleDownloadResume}
               className="flex items-center gap-2 px-6 py-3 rounded-xl neon-button shadow-lg interactive tilt-effect"
@@ -132,7 +136,7 @@ const Hero: React.FC = () => {
             </motion.button>
 
             {/* Social Icons */}
-            <motion.div className="flex gap-4">
+            <motion.div className="flex gap-4 mt-4 sm:mt-0">
               <motion.a
                 href="https://github.com/premexe"
                 target="_blank"
@@ -166,10 +170,10 @@ const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Scroll Down Indicator */}
+          {/* Scroll Indicator */}
           <motion.button
             onClick={scrollToAbout}
-            className="animate-bounce interactive"
+            className="animate-bounce interactive "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
