@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://premexe.github.io/portfolio1-site",
+  "homepage": "https://premexe.github.io/prem-portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
